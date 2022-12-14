@@ -12,7 +12,6 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--tpu", type=str, help="Name of TPU to train on.")
     parser.add_argument("--tpu_region", type=str, help="Region of TPU to train on.")
-    parser.add_argument("--preemptible", action="store_true")
 
     parser.add_argument("--config", type=str, default=None, help="Config file location")
 
@@ -40,7 +39,6 @@ if __name__ == "__main__":
     n_heads = params["n_heads"]
     n_vocab = params["n_vocab"]
     seq = params["seq"]
-    norm = params["norm"]
     pe = params["pe"]
 
     total_batch = per_replica_batch * tpu_size // cores_per_replica * 4
